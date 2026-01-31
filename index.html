@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FlyAssist – Book Flights, Manage Tickets & 24/7 Support</title>
-  <meta name="description" content="Book cheap flights, manage bookings, name changes, cancellations & get instant support. Save up to 45%. Call 1-833-567-7745"/>
+  <meta name="description" content="Book cheap flights, manage bookings, name changes, cancellations & get instant support for American, Delta, United, Southwest, Lufthansa & more. Save up to 45% today. Call 1-833-567-7745"/>
   <style>
     :root {
       --primary: #0078D2;
@@ -147,6 +147,7 @@
       color: #4B5563;
       text-align: center;
       display: none;
+      margin-top: 0.5rem;
     }
 
     .btn-search {
@@ -246,6 +247,24 @@
 
     .phone-huge a { color: white; text-decoration: none; }
 
+    .cta-final .btn-call {
+      display: inline-block;
+      background: var(--accent-red);
+      color: white;
+      font-weight: 700;
+      padding: 1.4rem 3rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      transition: all 0.25s;
+    }
+
+    .cta-final .btn-call:hover {
+      background: #A30014;
+      transform: translateY(-3px);
+    }
+
     footer {
       background: var(--dark);
       color: #9CA3AF;
@@ -262,6 +281,8 @@
       .trip-tab { width: 100%; text-align: center; border-radius: 0; margin: 0; }
       .form-grid { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; }
       .btn-search { font-size: 1.2rem; padding: 1.2rem; }
+      .section { padding: 4rem 5%; }
+      h2 { font-size: 2.2rem; }
     }
   </style>
 </head>
@@ -280,7 +301,7 @@
     <div class="deal-tag">UP TO 45% OFF – LIMITED TIME</div>
     <h1>Book Flights • Manage Tickets • Get Help 24/7</h1>
     <p style="font-size:1.35rem; max-width:720px; margin:1.4rem auto; opacity:0.95;">
-      Support for American, Delta, United, Southwest, Lufthansa & many more.
+      Support for American Airlines, Delta, United, Southwest, Lufthansa & many more carriers.
     </p>
 
     <div class="search-form-container">
@@ -309,7 +330,8 @@
         </div>
         <div class="form-field">
           <label>Passengers</label>
-          <select>
+          <select required>
+            <option value="">Select</option>
             <option>1 Adult</option>
             <option>2 Adults</option>
             <option>1 Adult, 1 Child</option>
@@ -318,7 +340,7 @@
         </div>
         <div class="form-field">
           <label>Class</label>
-          <select>
+          <select required>
             <option>Economy</option>
             <option>Premium Economy</option>
             <option>Business</option>
@@ -327,7 +349,7 @@
         </div>
 
         <p class="multi-note" id="multiNote">
-          Multi-city search: Please call us to build your custom itinerary!
+          Multi-city search: Please call us to build your custom itinerary with the best options!
         </p>
 
         <button type="submit" class="btn-search">Search Flights & Deals →</button>
@@ -335,8 +357,99 @@
     </div>
   </section>
 
-  <!-- Rest of the sections (offers, services, airlines, CTA, footer) remain the same as previous version -->
-  <!-- For brevity I've omitted them here – copy them from the earlier full code if needed -->
+  <section class="section">
+    <h2>Exclusive Offers – Save Big Today</h2>
+    <div class="promo-grid">
+      <div class="promo-card">
+        <h3>New Bookings</h3>
+        <div class="big-discount">45% OFF</div>
+        <p>Domestic & International flights – book now & save massively</p>
+        <div class="callout">Call 1-833-567-7745 to claim</div>
+      </div>
+      <div class="promo-card">
+        <h3>Free Changes</h3>
+        <div class="big-discount">+ FREE</div>
+        <p>One complimentary date/route change on select tickets</p>
+        <div class="callout">Limited offer – act fast</div>
+      </div>
+      <div class="promo-card">
+        <h3>Name Correction</h3>
+        <div class="big-discount">WAIVED FEES</div>
+        <p>Fix typos or legal names without extra charges</p>
+        <div class="callout">Call for instant processing</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Our Services – Full Flight Support</h2>
+    <div class="services-grid">
+      <div class="card">
+        <h3>Flight Booking</h3>
+        <p>Best fares across all major airlines – exclusive deals applied</p>
+        <div class="callout">Call 1-833-567-7745 to book</div>
+      </div>
+      <div class="card">
+        <h3>Cancellations & Refunds</h3>
+        <p>Cancel anytime & maximize refund eligibility</p>
+        <div class="callout">Fast refund assistance</div>
+      </div>
+      <div class="card">
+        <h3>Name / Passenger Changes</h3>
+        <p>Quick corrections & updates – avoid travel issues</p>
+        <div class="callout">Fee waivers available</div>
+      </div>
+      <div class="card">
+        <h3>Flight Modifications</h3>
+        <p>Change dates, routes, upgrade cabin – lowest fees</p>
+        <div class="callout">Rebook in minutes</div>
+      </div>
+      <div class="card">
+        <h3>24/7 Help & Enquiries</h3>
+        <p>Flight status, baggage, seats, delays – live support</p>
+        <div class="callout">Anytime assistance</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>We Support Major Airlines</h2>
+    <div class="airlines-grid">
+      <div class="airline-item">American Airlines</div>
+      <div class="airline-item">Delta Air Lines</div>
+      <div class="airline-item">United Airlines</div>
+      <div class="airline-item">Southwest Airlines</div>
+      <div class="airline-item">Alaska Airlines</div>
+      <div class="airline-item">JetBlue</div>
+      <div class="airline-item">Lufthansa</div>
+      <div class="airline-item">British Airways</div>
+      <div class="airline-item">Air Canada</div>
+      <div class="airline-item">Virgin Atlantic</div>
+      <div class="airline-item">+ Many More</div>
+    </div>
+  </section>
+
+  <section class="cta-final">
+    <h2>Need Help Right Now? We're Here 24/7</h2>
+    <div class="phone-huge">
+      <a href="tel:18335677745">1-833-567-7745</a>
+    </div>
+    <p style="font-size:1.5rem; max-width:800px; margin:0 auto 2.5rem;">
+      Toll-free • Live agents • Instant flight support & booking assistance
+    </p>
+    <a href="tel:18335677745" class="btn-call">Call Now – Speak to an Agent</a>
+  </section>
+
+  <footer>
+    <p>© 2026 FlyAssist – Independent Flight Assistance & Ticketing Service</p>
+    <p style="margin:1.5rem 0;">
+      <a href="#">Privacy Policy</a>  •  <a href="#">Terms of Service</a>  •  <a href="#">Contact</a>
+    </p>
+    <p style="font-size:0.9rem; opacity:0.8; max-width:900px; margin:0 auto;">
+      Not affiliated with any airline. We provide third-party travel assistance, booking facilitation, and support services. 
+      All offers subject to availability, terms & airline policies. Actual savings vary.
+    </p>
+  </footer>
 
   <script>
     // Trip type tabs logic
@@ -364,9 +477,9 @@
       });
     });
 
-    // On search button click → dial the number
+    // On "Search" button click → directly dial the toll-free number
     document.getElementById('searchForm').addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent actual form submit
+      e.preventDefault();
       window.location.href = 'tel:18335677745';
     });
   </script>
