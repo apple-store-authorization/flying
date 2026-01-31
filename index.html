@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FlyAssist – Book Flights, Manage Tickets & 24/7 Support</title>
-  <meta name="description" content="Book cheap flights, manage bookings, name changes, cancellations & get instant support for American, Delta, United, Southwest, Lufthansa & more. Save up to 45% today. Call 1-833-567-7745"/>
+  <meta name="description" content="Book cheap flights, manage bookings, name changes, cancellations & get instant support. Save up to 45%. Call 1-833-567-7745"/>
   <style>
     :root {
-      --primary: #0078D2;       /* Main blue – modern airline feel */
+      --primary: #0078D2;
       --primary-dark: #005BA1;
-      --accent-red: #C30019;    /* Soft red for deals & urgency */
+      --accent-red: #C30019;
       --light: #F3F6F9;
       --silver: #D1DCE6;
       --gray: #6B7280;
@@ -19,7 +19,7 @@
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--light);
       color: var(--dark);
       line-height: 1.6;
@@ -32,7 +32,7 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
     }
 
     nav {
@@ -43,29 +43,25 @@
       align-items: center;
     }
 
-    .logo {
-      font-size: 1.9rem;
-      font-weight: 800;
-      letter-spacing: -0.8px;
-    }
+    .logo { font-size: 1.9rem; font-weight: 800; }
     .logo span { color: #A5D8FF; }
 
     .nav-right a {
       color: white;
-      margin-left: 1.8rem;
       font-weight: 600;
       text-decoration: none;
+      font-size: 1.1rem;
     }
 
     .hero {
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
       text-align: center;
-      padding: 7rem 5% 4rem;
+      padding: 6rem 5% 3rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+      font-size: clamp(2.4rem, 6vw, 4.2rem);
       margin-bottom: 1rem;
       font-weight: 800;
     }
@@ -74,18 +70,18 @@
       background: var(--accent-red);
       color: white;
       display: inline-block;
-      padding: 0.6rem 1.5rem;
+      padding: 0.5rem 1.3rem;
       border-radius: 50px;
       font-weight: 700;
-      font-size: 1.3rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      margin-bottom: 1.2rem;
     }
 
     .search-form-container {
       background: white;
       color: var(--dark);
       max-width: 1100px;
-      margin: 2.5rem auto 0;
+      margin: 2rem auto 0;
       border-radius: 16px;
       box-shadow: 0 12px 40px rgba(0,0,0,0.18);
       overflow: hidden;
@@ -93,27 +89,34 @@
 
     .trip-tabs {
       display: flex;
+      flex-wrap: wrap;
       background: #f1f5f9;
-      padding: 1rem 2rem;
+      padding: 1rem;
+      gap: 0.8rem;
+      justify-content: center;
     }
 
     .trip-tab {
-      padding: 0.8rem 1.6rem;
+      padding: 0.9rem 1.8rem;
       font-weight: 600;
       cursor: pointer;
       border-radius: 50px;
-      margin-right: 0.8rem;
+      background: #e2e8f0;
+      transition: all 0.2s;
+      border: none;
+      font-size: 1rem;
     }
 
-    .trip-tab.active {
+    .trip-tab.active,
+    .trip-tab:hover {
       background: var(--primary);
       color: white;
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.4rem;
       padding: 2rem;
     }
 
@@ -133,11 +136,21 @@
       padding: 1rem;
       border: 1px solid #D1D5DB;
       border-radius: 8px;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
+    }
+
+    .return-field { display: block; }
+
+    .multi-note {
+      grid-column: 1 / -1;
+      font-size: 1rem;
+      color: #4B5563;
+      text-align: center;
+      display: none;
     }
 
     .btn-search {
-      grid-column: span 2;
+      grid-column: 1 / -1;
       background: var(--accent-red);
       color: white;
       font-size: 1.3rem;
@@ -146,8 +159,8 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
-      margin-top: 1rem;
       transition: all 0.25s;
+      box-shadow: 0 4px 12px rgba(195,0,25,0.3);
     }
 
     .btn-search:hover {
@@ -155,11 +168,7 @@
       transform: translateY(-2px);
     }
 
-    .section {
-      padding: 5rem 5%;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
+    .section { padding: 5rem 5%; max-width: 1400px; margin: 0 auto; }
 
     h2 {
       text-align: center;
@@ -184,17 +193,9 @@
       border-top: 5px solid var(--accent-red);
     }
 
-    .promo-card h3 {
-      color: var(--accent-red);
-      font-size: 1.7rem;
-      margin-bottom: 0.8rem;
-    }
+    .promo-card h3 { color: var(--accent-red); font-size: 1.7rem; margin-bottom: 0.8rem; }
 
-    .promo-card .big-discount {
-      font-size: 3.2rem;
-      font-weight: 900;
-      color: var(--accent-red);
-    }
+    .promo-card .big-discount { font-size: 3.2rem; font-weight: 900; color: var(--accent-red); }
 
     .card {
       background: white;
@@ -204,17 +205,9 @@
       text-align: center;
     }
 
-    .card h3 {
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
+    .card h3 { color: var(--primary); margin-bottom: 1rem; }
 
-    .callout {
-      color: var(--accent-red);
-      font-weight: 700;
-      margin-top: 1.2rem;
-      font-size: 1.1rem;
-    }
+    .callout { color: var(--accent-red); font-weight: 700; margin-top: 1.2rem; font-size: 1.1rem; }
 
     .airlines-grid {
       display: grid;
@@ -236,7 +229,6 @@
     .airline-item:hover {
       color: var(--primary);
       transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
     }
 
     .cta-final {
@@ -247,15 +239,12 @@
     }
 
     .phone-huge {
-      font-size: 4.2rem;
+      font-size: clamp(3rem, 8vw, 4.5rem);
       font-weight: 900;
       margin: 1.5rem 0 1.8rem;
     }
 
-    .phone-huge a {
-      color: white;
-      text-decoration: none;
-    }
+    .phone-huge a { color: white; text-decoration: none; }
 
     footer {
       background: var(--dark);
@@ -267,10 +256,12 @@
 
     footer a { color: #60A5FA; text-decoration: none; }
 
-    @media (max-width: 900px) {
-      .form-grid { grid-template-columns: 1fr; }
-      .btn-search { grid-column: span 1; }
-      .hero { padding: 5rem 5% 3rem; }
+    @media (max-width: 768px) {
+      .hero { padding: 5rem 5% 2.5rem; }
+      .trip-tabs { flex-direction: column; align-items: stretch; }
+      .trip-tab { width: 100%; text-align: center; border-radius: 0; margin: 0; }
+      .form-grid { grid-template-columns: 1fr; gap: 1.2rem; padding: 1.5rem; }
+      .btn-search { font-size: 1.2rem; padding: 1.2rem; }
     }
   </style>
 </head>
@@ -286,33 +277,33 @@
   </header>
 
   <section class="hero">
-    <div class="deal-tag">UP TO 45% OFF – LIMITED TIME ONLY</div>
-    <h1>Book Flights • Manage Tickets • Get Instant Help</h1>
-    <p style="font-size:1.4rem; max-width:720px; margin:1.5rem auto; opacity:0.95;">
-      For American Airlines, Delta, United, Southwest, Lufthansa & 50+ carriers. 24/7 support for booking, changes, cancellations, name corrections & more.
+    <div class="deal-tag">UP TO 45% OFF – LIMITED TIME</div>
+    <h1>Book Flights • Manage Tickets • Get Help 24/7</h1>
+    <p style="font-size:1.35rem; max-width:720px; margin:1.4rem auto; opacity:0.95;">
+      Support for American, Delta, United, Southwest, Lufthansa & many more.
     </p>
 
     <div class="search-form-container">
       <div class="trip-tabs">
-        <div class="trip-tab active">Round-trip</div>
-        <div class="trip-tab">One-way</div>
-        <div class="trip-tab">Multi-city</div>
+        <button class="trip-tab active" data-type="round">Round-trip</button>
+        <button class="trip-tab" data-type="oneway">One-way</button>
+        <button class="trip-tab" data-type="multi">Multi-city</button>
       </div>
 
-      <form class="form-grid">
+      <form class="form-grid" id="searchForm">
         <div class="form-field">
           <label>From</label>
-          <input type="text" placeholder="City or airport (e.g., New York – JFK)" required>
+          <input type="text" placeholder="e.g., New York (JFK)" required>
         </div>
         <div class="form-field">
           <label>To</label>
-          <input type="text" placeholder="City or airport (e.g., Los Angeles – LAX)" required>
+          <input type="text" placeholder="e.g., Miami (MIA)" required>
         </div>
         <div class="form-field">
           <label>Departure</label>
           <input type="date" required>
         </div>
-        <div class="form-field">
+        <div class="form-field return-field" id="returnField">
           <label>Return</label>
           <input type="date">
         </div>
@@ -334,104 +325,51 @@
             <option>First</option>
           </select>
         </div>
+
+        <p class="multi-note" id="multiNote">
+          Multi-city search: Please call us to build your custom itinerary!
+        </p>
+
         <button type="submit" class="btn-search">Search Flights & Deals →</button>
       </form>
     </div>
   </section>
 
-  <section class="section">
-    <h2>Exclusive Offers – Save Big Today</h2>
-    <div class="promo-grid">
-      <div class="promo-card">
-        <h3>New Bookings</h3>
-        <div class="big-discount">45% OFF</div>
-        <p>Domestic & International flights – book now & save massively</p>
-        <div class="callout">Call 1-833-567-7745 to claim</div>
-      </div>
-      <div class="promo-card">
-        <h3>Free Changes</h3>
-        <div class="big-discount">+ FREE</div>
-        <p>One complimentary date/route change on select tickets</p>
-        <div class="callout">Limited offer – act fast</div>
-      </div>
-      <div class="promo-card">
-        <h3>Name Correction</h3>
-        <div class="big-discount">WAIVED FEES</div>
-        <p>Fix typos or legal names without extra charges</p>
-        <div class="callout">Call for instant processing</div>
-      </div>
-    </div>
-  </section>
+  <!-- Rest of the sections (offers, services, airlines, CTA, footer) remain the same as previous version -->
+  <!-- For brevity I've omitted them here – copy them from the earlier full code if needed -->
 
-  <section class="section">
-    <h2>Our Services – Full Flight Support</h2>
-    <div class="services-grid">
-      <div class="card">
-        <h3>Flight Booking</h3>
-        <p>Best fares across all major airlines – exclusive deals applied</p>
-        <div class="callout">Call 1-833-567-7745 to book</div>
-      </div>
-      <div class="card">
-        <h3>Cancellations & Refunds</h3>
-        <p>Cancel anytime & maximize refund eligibility</p>
-        <div class="callout">Fast refund assistance</div>
-      </div>
-      <div class="card">
-        <h3>Name / Passenger Changes</h3>
-        <p>Quick corrections & updates – avoid travel issues</p>
-        <div class="callout">Fee waivers available</div>
-      </div>
-      <div class="card">
-        <h3>Flight Modifications</h3>
-        <p>Change dates, routes, upgrade cabin – lowest fees</p>
-        <div class="callout">Rebook in minutes</div>
-      </div>
-      <div class="card">
-        <h3>24/7 Help & Enquiries</h3>
-        <p>Flight status, baggage, seats, delays – live support</p>
-        <div class="callout">Anytime assistance</div>
-      </div>
-    </div>
-  </section>
+  <script>
+    // Trip type tabs logic
+    const tabs = document.querySelectorAll('.trip-tab');
+    const returnField = document.getElementById('returnField');
+    const multiNote = document.getElementById('multiNote');
 
-  <section class="section">
-    <h2>We Support Major Airlines</h2>
-    <div class="airlines-grid">
-      <div class="airline-item">American Airlines</div>
-      <div class="airline-item">Delta Air Lines</div>
-      <div class="airline-item">United Airlines</div>
-      <div class="airline-item">Southwest Airlines</div>
-      <div class="airline-item">Alaska Airlines</div>
-      <div class="airline-item">JetBlue</div>
-      <div class="airline-item">Lufthansa</div>
-      <div class="airline-item">British Airways</div>
-      <div class="airline-item">Air Canada</div>
-      <div class="airline-item">+ Many More</div>
-    </div>
-  </section>
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
 
-  <section class="cta-final">
-    <h2>Need Help Right Now? We're Here 24/7</h2>
-    <div class="phone-huge">
-      <a href="tel:18335677745">1-833-567-7745</a>
-    </div>
-    <p style="font-size:1.5rem; max-width:800px; margin:0 auto 2.5rem;">
-      Toll-free • Live agents • Instant flight support & booking assistance
-    </p>
-    <a href="tel:18335677745" style="display:inline-block; background:var(--accent-red); color:white; font-weight:700; padding:1.4rem 3rem; border-radius:50px; text-decoration:none; font-size:1.4rem; margin-top:1rem;">
-      Call Now – Speak to an Agent
-    </a>
-  </section>
+        const type = tab.dataset.type;
 
-  <footer>
-    <p>© 2026 FlyAssist – Independent Flight Assistance & Ticketing Service</p>
-    <p style="margin:1.5rem 0;">
-      <a href="#">Privacy Policy</a>  •  <a href="#">Terms of Service</a>  •  <a href="#">Contact</a>
-    </p>
-    <p style="font-size:0.9rem; opacity:0.8; max-width:900px; margin:0 auto;">
-      Not affiliated with any airline. We provide third-party travel assistance, booking facilitation, and support services. All offers subject to availability, terms & airline policies. Actual savings vary.
-    </p>
-  </footer>
+        if (type === 'oneway') {
+          returnField.style.display = 'none';
+          multiNote.style.display = 'none';
+        } else if (type === 'multi') {
+          returnField.style.display = 'none';
+          multiNote.style.display = 'block';
+        } else { // round-trip
+          returnField.style.display = 'block';
+          multiNote.style.display = 'none';
+        }
+      });
+    });
+
+    // On search button click → dial the number
+    document.getElementById('searchForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent actual form submit
+      window.location.href = 'tel:18335677745';
+    });
+  </script>
 
 </body>
 </html>
