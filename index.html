@@ -3,36 +3,36 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FlyAssist — Book Flights, Changes & Support | Save Up to 45% Now</title>
-  <meta name="description" content="24/7 help for booking, cancellation, name change, flight modifications & support. Save 45% on bookings with all major airlines. Call 1-833-567-7745"/>
+  <title>FlyAssist – Book Flights, Manage Tickets & 24/7 Support</title>
+  <meta name="description" content="Book cheap flights, manage bookings, name changes, cancellations & get instant support for American, Delta, United, Southwest, Lufthansa & more. Save up to 45% today. Call 1-833-567-7745"/>
   <style>
     :root {
-      --aa-red:    #B61F23;     /* American Airlines signature red */
-      --aa-blue:   #0D73B1;     /* AA deep blue */
-      --aa-light-blue: #14ACDC;
-      --aa-silver: #C7D0D7;
-      --aa-gray:   #6B7280;
-      --white:     #FFFFFF;
-      --offwhite:  #F9FAFB;
-      --dark:      #111827;
+      --primary: #0078D2;       /* Main blue – modern airline feel */
+      --primary-dark: #005BA1;
+      --accent-red: #C30019;    /* Soft red for deals & urgency */
+      --light: #F3F6F9;
+      --silver: #D1DCE6;
+      --gray: #6B7280;
+      --dark: #111827;
+      --white: #FFFFFF;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      background: var(--offwhite);
+      background: var(--light);
       color: var(--dark);
       line-height: 1.6;
     }
 
     header {
-      background: var(--aa-red);
+      background: var(--primary);
       color: white;
       padding: 1rem 5%;
       position: sticky;
       top: 0;
-      z-index: 100;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+      z-index: 200;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
     }
 
     nav {
@@ -44,220 +44,233 @@
     }
 
     .logo {
-      font-size: 1.8rem;
+      font-size: 1.9rem;
       font-weight: 800;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.8px;
     }
-    .logo span { color: var(--aa-silver); }
+    .logo span { color: #A5D8FF; }
 
-    .phone-header a {
+    .nav-right a {
       color: white;
-      font-weight: 700;
-      font-size: 1.15rem;
+      margin-left: 1.8rem;
+      font-weight: 600;
       text-decoration: none;
     }
 
     .hero {
-      background: linear-gradient(135deg, var(--aa-red) 0%, #8B1A1F 100%);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
       text-align: center;
-      padding: 9rem 5% 7rem;
+      padding: 7rem 5% 4rem;
     }
 
     .hero h1 {
-      font-size: clamp(2.8rem, 7.5vw, 5rem);
-      margin-bottom: 1.2rem;
+      font-size: clamp(2.6rem, 6.5vw, 4.5rem);
+      margin-bottom: 1rem;
       font-weight: 800;
-      line-height: 1.05;
     }
 
-    .deal-banner {
-      background: rgba(255,255,255,0.22);
-      backdrop-filter: blur(6px);
-      padding: 1.2rem 2rem;
-      border-radius: 12px;
-      font-size: 2.1rem;
-      font-weight: 800;
-      margin: 1.5rem auto 2rem;
-      max-width: 900px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    }
-
-    .hero p.lead {
-      font-size: 1.5rem;
-      max-width: 780px;
-      margin: 0 auto 2.2rem;
-      opacity: 0.95;
-    }
-
-    .phone-hero {
-      font-size: 3.2rem;
-      font-weight: 900;
-      margin: 1.8rem 0 2.5rem;
-      letter-spacing: 1.2px;
-    }
-
-    .phone-hero a {
+    .deal-tag {
+      background: var(--accent-red);
       color: white;
-      text-decoration: none;
-      background: rgba(13,115,177,0.35);
-      padding: 0.8rem 1.8rem;
-      border-radius: 12px;
-      transition: all 0.3s;
-    }
-
-    .phone-hero a:hover { background: rgba(13,115,177,0.55); transform: scale(1.05); }
-
-    .btn {
       display: inline-block;
-      font-weight: 700;
-      padding: 1.2rem 2.8rem;
+      padding: 0.6rem 1.5rem;
       border-radius: 50px;
-      text-decoration: none;
-      font-size: 1.25rem;
-      transition: all 0.3s;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.25);
-      margin: 0.8rem;
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
     }
 
-    .btn-red {
+    .search-form-container {
       background: white;
-      color: var(--aa-red);
-    }
-    .btn-red:hover {
-      background: var(--aa-silver);
-      transform: translateY(-4px);
+      color: var(--dark);
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
+      overflow: hidden;
     }
 
-    .btn-blue {
-      background: var(--aa-blue);
+    .trip-tabs {
+      display: flex;
+      background: #f1f5f9;
+      padding: 1rem 2rem;
+    }
+
+    .trip-tab {
+      padding: 0.8rem 1.6rem;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 50px;
+      margin-right: 0.8rem;
+    }
+
+    .trip-tab.active {
+      background: var(--primary);
       color: white;
     }
-    .btn-blue:hover {
-      background: #0b5e95;
-      transform: translateY(-4px);
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+      padding: 2rem;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-field label {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #4B5563;
+    }
+
+    input, select {
+      padding: 1rem;
+      border: 1px solid #D1D5DB;
+      border-radius: 8px;
+      font-size: 1.1rem;
+    }
+
+    .btn-search {
+      grid-column: span 2;
+      background: var(--accent-red);
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 700;
+      padding: 1.3rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: all 0.25s;
+    }
+
+    .btn-search:hover {
+      background: #A30014;
+      transform: translateY(-2px);
     }
 
     .section {
-      padding: 6rem 5%;
+      padding: 5rem 5%;
       max-width: 1400px;
       margin: 0 auto;
     }
 
     h2 {
       text-align: center;
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       margin-bottom: 3rem;
-      color: var(--aa-red);
+      color: var(--primary-dark);
       font-weight: 800;
     }
 
     .promo-grid, .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 2rem;
     }
 
-    .promo-card, .card {
+    .promo-card {
       background: white;
       border-radius: 16px;
-      padding: 2.2rem;
-      box-shadow: 0 8px 28px rgba(0,0,0,0.1);
-      transition: all 0.3s;
+      padding: 2rem;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
       text-align: center;
-      border: 1px solid var(--aa-silver);
+      border-top: 5px solid var(--accent-red);
     }
 
-    .promo-card {
-      border: 2px solid var(--aa-red);
-      background: linear-gradient(to bottom, #fffafafa, white);
+    .promo-card h3 {
+      color: var(--accent-red);
+      font-size: 1.7rem;
+      margin-bottom: 0.8rem;
     }
 
-    .promo-card h3, .card h3 {
-      font-size: 1.55rem;
-      margin: 1rem 0 1rem;
-      color: var(--aa-red);
-    }
-
-    .promo-card .discount {
-      font-size: 2.8rem;
+    .promo-card .big-discount {
+      font-size: 3.2rem;
       font-weight: 900;
-      color: var(--aa-red);
-      margin: 0.5rem 0;
+      color: var(--accent-red);
     }
 
-    .promo-card .subtitle {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--aa-blue);
-    }
-
-    .card .callout {
-      margin-top: 1.5rem;
-      font-weight: 700;
-      color: var(--aa-red);
-      font-size: 1.15rem;
-    }
-
-    .airlines {
+    .card {
       background: white;
-      padding: 6rem 5%;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+      text-align: center;
+    }
+
+    .card h3 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .callout {
+      color: var(--accent-red);
+      font-weight: 700;
+      margin-top: 1.2rem;
+      font-size: 1.1rem;
     }
 
     .airlines-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1.5rem;
       text-align: center;
     }
 
     .airline-item {
-      padding: 1.8rem;
+      padding: 1.6rem;
+      background: white;
       border-radius: 12px;
-      background: var(--offwhite);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
       font-weight: 600;
-      color: var(--aa-gray);
-      transition: all 0.3s;
-      border: 1px solid var(--aa-silver);
+      color: var(--gray);
+      transition: all 0.25s;
     }
 
     .airline-item:hover {
-      background: #e6f0ff;
-      color: var(--aa-blue);
-      border-color: var(--aa-blue);
+      color: var(--primary);
       transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.12);
     }
 
-    .cta-section {
-      background: var(--aa-blue);
+    .cta-final {
+      background: var(--primary-dark);
       color: white;
       text-align: center;
-      padding: 8rem 5% 6rem;
+      padding: 7rem 5%;
     }
 
-    .cta-section .phone-big {
-      font-size: 4rem;
+    .phone-huge {
+      font-size: 4.2rem;
       font-weight: 900;
-      margin: 1.8rem 0 2.2rem;
-      letter-spacing: 1.5px;
+      margin: 1.5rem 0 1.8rem;
+    }
+
+    .phone-huge a {
+      color: white;
+      text-decoration: none;
     }
 
     footer {
       background: var(--dark);
-      color: var(--aa-silver);
+      color: #9CA3AF;
       text-align: center;
-      padding: 4rem 5% 2.5rem;
-      font-size: 0.98rem;
+      padding: 4rem 5% 2rem;
+      font-size: 0.95rem;
     }
 
-    footer a { color: var(--aa-light-blue); text-decoration: none; font-weight: 500; }
+    footer a { color: #60A5FA; text-decoration: none; }
 
-    @media (max-width: 768px) {
-      .hero { padding: 7rem 5% 5rem; }
-      .deal-banner { font-size: 1.7rem; padding: 1rem 1.5rem; }
-      .phone-hero { font-size: 2.4rem; }
-      .cta-section .phone-big { font-size: 3rem; }
-      h2 { font-size: 2.4rem; }
+    @media (max-width: 900px) {
+      .form-grid { grid-template-columns: 1fr; }
+      .btn-search { grid-column: span 1; }
+      .hero { padding: 5rem 5% 3rem; }
     }
   </style>
 </head>
@@ -266,97 +279,123 @@
   <header>
     <nav>
       <div class="logo">Fly<span>Assist</span></div>
-      <div class="phone-header">
+      <div class="nav-right">
         <a href="tel:18335677745">Call 24/7: 1-833-567-7745</a>
       </div>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Save Big on Every Flight — Up to 45% OFF</h1>
-    
-    <div class="deal-banner">
-      BOOK NOW & SAVE 45% ON ALL MAJOR AIRLINES
+    <div class="deal-tag">UP TO 45% OFF – LIMITED TIME ONLY</div>
+    <h1>Book Flights • Manage Tickets • Get Instant Help</h1>
+    <p style="font-size:1.4rem; max-width:720px; margin:1.5rem auto; opacity:0.95;">
+      For American Airlines, Delta, United, Southwest, Lufthansa & 50+ carriers. 24/7 support for booking, changes, cancellations, name corrections & more.
+    </p>
+
+    <div class="search-form-container">
+      <div class="trip-tabs">
+        <div class="trip-tab active">Round-trip</div>
+        <div class="trip-tab">One-way</div>
+        <div class="trip-tab">Multi-city</div>
+      </div>
+
+      <form class="form-grid">
+        <div class="form-field">
+          <label>From</label>
+          <input type="text" placeholder="City or airport (e.g., New York – JFK)" required>
+        </div>
+        <div class="form-field">
+          <label>To</label>
+          <input type="text" placeholder="City or airport (e.g., Los Angeles – LAX)" required>
+        </div>
+        <div class="form-field">
+          <label>Departure</label>
+          <input type="date" required>
+        </div>
+        <div class="form-field">
+          <label>Return</label>
+          <input type="date">
+        </div>
+        <div class="form-field">
+          <label>Passengers</label>
+          <select>
+            <option>1 Adult</option>
+            <option>2 Adults</option>
+            <option>1 Adult, 1 Child</option>
+            <option>2 Adults, 2 Children</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>Class</label>
+          <select>
+            <option>Economy</option>
+            <option>Premium Economy</option>
+            <option>Business</option>
+            <option>First</option>
+          </select>
+        </div>
+        <button type="submit" class="btn-search">Search Flights & Deals →</button>
+      </form>
     </div>
-    
-    <p class="lead">Instant assistance for bookings, cancellations, name corrections, changes, refunds & 24/7 support — American, Delta, United, Southwest, Lufthansa & more.</p>
-    
-    <div class="phone-hero">
-      <a href="tel:18335677745">1-833-567-7745</a>
-    </div>
-    
-    <a href="tel:18335677745" class="btn btn-red">Call Now – Claim Your 45% Deal</a>
-    <a href="#offers" class="btn btn-blue">View All Limited Offers →</a>
   </section>
 
-  <section class="section" id="offers">
-    <h2>Exclusive Limited-Time Offers</h2>
+  <section class="section">
+    <h2>Exclusive Offers – Save Big Today</h2>
     <div class="promo-grid">
       <div class="promo-card">
-        <h3>45% OFF Flight Bookings</h3>
-        <div class="discount">45% OFF</div>
-        <p class="subtitle">New Domestic & International Bookings – Book Today!</p>
-        <div class="callout">Call 1-833-567-7745 to Lock In Savings</div>
+        <h3>New Bookings</h3>
+        <div class="big-discount">45% OFF</div>
+        <p>Domestic & International flights – book now & save massively</p>
+        <div class="callout">Call 1-833-567-7745 to claim</div>
       </div>
       <div class="promo-card">
-        <h3>Up to 45% Off + Free Changes</h3>
-        <div class="discount">45% + FREE</div>
-        <p class="subtitle">Round-Trip Tickets – One Complimentary Date Change</p>
-        <div class="callout">Limited Seats – Call Now</div>
+        <h3>Free Changes</h3>
+        <div class="big-discount">+ FREE</div>
+        <p>One complimentary date/route change on select tickets</p>
+        <div class="callout">Limited offer – act fast</div>
       </div>
       <div class="promo-card">
-        <h3>Name Change Fee Waiver</h3>
-        <div class="discount">WAIVED</div>
-        <p class="subtitle">Correct Names for Free on Select Airlines – Save Hundreds</p>
-        <div class="callout">Call 1-833-567-7745 – Fast & Easy</div>
-      </div>
-      <div class="promo-card">
-        <h3>Flash Sale: 45% Off Upgrades</h3>
-        <div class="discount">45% OFF</div>
-        <p class="subtitle">Premium Economy / Business Class Upgrades</p>
-        <div class="callout">Hurry – Offer Ends Soon</div>
+        <h3>Name Correction</h3>
+        <div class="big-discount">WAIVED FEES</div>
+        <p>Fix typos or legal names without extra charges</p>
+        <div class="callout">Call for instant processing</div>
       </div>
     </div>
   </section>
 
   <section class="section">
-    <h2>Our Core Services</h2>
+    <h2>Our Services – Full Flight Support</h2>
     <div class="services-grid">
       <div class="card">
-        <h3>New Flight Booking</h3>
-        <p>Best fares across 50+ airlines – now with exclusive 45% off deals.</p>
-        <div class="callout">Call 1-833-567-7745 to Book & Save</div>
+        <h3>Flight Booking</h3>
+        <p>Best fares across all major airlines – exclusive deals applied</p>
+        <div class="callout">Call 1-833-567-7745 to book</div>
       </div>
       <div class="card">
-        <h3>Cancellation & Refunds</h3>
-        <p>Full assistance – maximize your refund even on restricted fares.</p>
-        <div class="callout">Call for Instant Refund Status</div>
+        <h3>Cancellations & Refunds</h3>
+        <p>Cancel anytime & maximize refund eligibility</p>
+        <div class="callout">Fast refund assistance</div>
       </div>
       <div class="card">
-        <h3>Name Correction</h3>
-        <p>Fix typos or legal updates – fee waivers available now.</p>
-        <div class="callout">Call 1-833-567-7745</div>
+        <h3>Name / Passenger Changes</h3>
+        <p>Quick corrections & updates – avoid travel issues</p>
+        <div class="callout">Fee waivers available</div>
       </div>
       <div class="card">
-        <h3>Flight Changes</h3>
-        <p>Date, route or cabin upgrades with lowest fees possible.</p>
-        <div class="callout">Rebook with 45% Savings</div>
+        <h3>Flight Modifications</h3>
+        <p>Change dates, routes, upgrade cabin – lowest fees</p>
+        <div class="callout">Rebook in minutes</div>
       </div>
       <div class="card">
-        <h3>Enquiries & Status</h3>
-        <p>Baggage, seats, check-in, delays – real-time help.</p>
-        <div class="callout">24/7 Live Support</div>
-      </div>
-      <div class="card">
-        <h3>Emergency Travel Help</h3>
-        <p>Missed flights, disruptions – fast rebooking & support.</p>
-        <div class="callout">Call Anytime</div>
+        <h3>24/7 Help & Enquiries</h3>
+        <p>Flight status, baggage, seats, delays – live support</p>
+        <div class="callout">Anytime assistance</div>
       </div>
     </div>
   </section>
 
-  <section class="airlines section">
-    <h2>We Support These Airlines & More</h2>
+  <section class="section">
+    <h2>We Support Major Airlines</h2>
     <div class="airlines-grid">
       <div class="airline-item">American Airlines</div>
       <div class="airline-item">Delta Air Lines</div>
@@ -366,29 +405,31 @@
       <div class="airline-item">JetBlue</div>
       <div class="airline-item">Lufthansa</div>
       <div class="airline-item">British Airways</div>
-      <div class="airline-item">+ 40 More</div>
+      <div class="airline-item">Air Canada</div>
+      <div class="airline-item">+ Many More</div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <h2>Don't Miss Out – Save 45% Today</h2>
-    <div class="phone-big">
-      <a href="tel:18335677745" style="color:white; text-decoration:none;">1-833-567-7745</a>
+  <section class="cta-final">
+    <h2>Need Help Right Now? We're Here 24/7</h2>
+    <div class="phone-huge">
+      <a href="tel:18335677745">1-833-567-7745</a>
     </div>
     <p style="font-size:1.5rem; max-width:800px; margin:0 auto 2.5rem;">
-      Toll-free • 24/7 Live Agents • Exclusive Deals on All Major Airlines
+      Toll-free • Live agents • Instant flight support & booking assistance
     </p>
-    <a href="tel:18335677745" class="btn btn-red" style="font-size:1.4rem; padding:1.4rem 3.2rem;">Call Now & Save 45%</a>
+    <a href="tel:18335677745" style="display:inline-block; background:var(--accent-red); color:white; font-weight:700; padding:1.4rem 3rem; border-radius:50px; text-decoration:none; font-size:1.4rem; margin-top:1rem;">
+      Call Now – Speak to an Agent
+    </a>
   </section>
 
   <footer>
-    <p>© 2026 FlyAssist – Independent Flight Assistance & Booking Support<br>
-    24/7 Toll-Free: <a href="tel:18335677745">1-833-567-7745</a></p>
-    <p style="margin-top:1.5rem;">
-      <a href="#">Privacy</a> • <a href="#">Terms</a> • <a href="#">Contact</a>
+    <p>© 2026 FlyAssist – Independent Flight Assistance & Ticketing Service</p>
+    <p style="margin:1.5rem 0;">
+      <a href="#">Privacy Policy</a>  •  <a href="#">Terms of Service</a>  •  <a href="#">Contact</a>
     </p>
-    <p style="margin-top:2rem; font-size:0.9rem; opacity:0.8;">
-      Not an official airline site. Third-party travel assistance service. Offers subject to availability.
+    <p style="font-size:0.9rem; opacity:0.8; max-width:900px; margin:0 auto;">
+      Not affiliated with any airline. We provide third-party travel assistance, booking facilitation, and support services. All offers subject to availability, terms & airline policies. Actual savings vary.
     </p>
   </footer>
 
