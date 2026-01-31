@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlyAssist — 24/7 Flight Help | Booking • Changes • Cancellation</title>
+  <meta name="description" content="Instant assistance for flight booking, cancellation, name correction, changes, refunds & support for American, Delta, United, Southwest, Lufthansa and all major airlines. Call 1-833-567-7745"/>
+  <style>
+    :root {
+      --primary: #1d4ed8;
+      --primary-dark: #1e40af;
+      --light: #f8fafc;
+      --gray: #64748b;
+      --dark: #0f172a;
+      --white: #ffffff;
+      --accent: #dc2626; /* red for call-to-action */
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(to bottom, var(--light), #e2e8f0);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary);
+      color: white;
+      padding: 1.2rem 5%;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: #93c5fd; }
+
+    .hero {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 9rem 5% 7rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 4.8rem);
+      margin-bottom: 1.3rem;
+      line-height: 1.1;
+    }
+
+    .hero p.lead {
+      font-size: 1.45rem;
+      max-width: 720px;
+      margin: 0 auto 1.8rem;
+      opacity: 0.95;
+    }
+
+    .phone-hero {
+      font-size: 2.6rem;
+      font-weight: 800;
+      margin: 1.5rem 0 2rem;
+      letter-spacing: 1px;
+    }
+
+    .phone-hero a {
+      color: white;
+      text-decoration: none;
+      background: rgba(255,255,255,0.18);
+      padding: 0.6rem 1.4rem;
+      border-radius: 12px;
+      transition: all 0.25s;
+    }
+
+    .phone-hero a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: scale(1.04);
+    }
+
+    .btn, .btn-call {
+      display: inline-block;
+      font-weight: 700;
+      padding: 1.1rem 2.4rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 1.15rem;
+      transition: all 0.25s;
+      box-shadow: 0 5px 16px rgba(0,0,0,0.18);
+    }
+
+    .btn {
+      background: white;
+      color: var(--primary-dark);
+    }
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.22);
+    }
+
+    .btn-call {
+      background: var(--accent);
+      color: white;
+      margin: 0.8rem;
+    }
+    .btn-call:hover {
+      background: #b91c1c;
+      transform: translateY(-4px);
+    }
+
+    .section {
+      padding: 6rem 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 3.5rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 14px;
+      padding: 2.2rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.09);
+      transition: all 0.3s;
+      text-align: center;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.14);
+    }
+
+    .card h3 {
+      margin: 1.4rem 0 0.9rem;
+      font-size: 1.45rem;
+      color: var(--primary-dark);
+    }
+
+    .card .callout {
+      margin-top: 1.4rem;
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .airlines {
+      background: white;
+      padding: 6rem 5%;
+    }
+
+    .airlines-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.8rem;
+      text-align: center;
+    }
+
+    .airline-item {
+      padding: 1.8rem;
+      border-radius: 12px;
+      background: var(--light);
+      font-weight: 600;
+      color: var(--gray);
+      transition: all 0.25s;
+    }
+
+    .airline-item:hover {
+      background: #dbeafe;
+      color: var(--primary);
+      transform: scale(1.06);
+    }
+
+    .cta-section {
+      background: var(--primary-dark);
+      color: white;
+      text-align: center;
+      padding: 7rem 5% 5rem;
+    }
+
+    .cta-section .phone-big {
+      font-size: 3.4rem;
+      font-weight: 800;
+      margin: 1.5rem 0 2rem;
+      letter-spacing: 1.5px;
+    }
+
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 4rem 5% 2.5rem;
+      font-size: 0.98rem;
+    }
+
+    footer a { color: #93c5fd; text-decoration: none; }
+
+    @media (max-width: 768px) {
+      .hero { padding: 7rem 5% 5rem; }
+      .phone-hero { font-size: 2.1rem; }
+      .cta-section .phone-big { font-size: 2.6rem; }
+      h2 { font-size: 2.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Fly<span>Assist</span></div>
+      <div style="font-weight:600; font-size:1.15rem;">
+        <a href="tel:18335677745" style="color:white;">Call 1-833-567-7745</a>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>24/7 Flight Support for All Major Airlines</h1>
+    <p class="lead">Booking • Cancellation • Name Correction • Flight Changes • Refunds • Enquiries • Urgent Help</p>
+    
+    <div class="phone-hero">
+      <a href="tel:18335677745">1-833-567-7745</a>
+    </div>
+    
+    <p style="font-size:1.3rem; margin:1.5rem 0 2.5rem; opacity:0.9;">
+      Speak to a live agent now — we handle American, Delta, United, Southwest, Lufthansa & 50+ carriers
+    </p>
+    
+    <a href="tel:18335677745" class="btn-call">Call Now – Open 24/7</a>
+    <a href="#services" class="btn">See All Services →</a>
+  </section>
+
+  <section class="section" id="services">
+    <h2>Our Most Requested Services</h2>
+    <div class="services-grid">
+      <div class="card">
+        <h3>New Flight Booking</h3>
+        <p>Lowest fares & best routes across all major airlines – domestic & international.</p>
+        <div class="callout">Call 1-833-567-7745 to book now</div>
+      </div>
+      <div class="card">
+        <h3>Cancellation & Refund Help</h3>
+        <p>Cancel flights and secure refunds – including non-refundable tickets when eligible.</p>
+        <div class="callout">Call 1-833-567-7745 for refund status</div>
+      </div>
+      <div class="card">
+        <h3>Name Correction / Change</h3>
+        <p>Fix typos or legal name updates quickly to avoid boarding denial.</p>
+        <div class="callout">Call 1-833-567-7745 – fast corrections</div>
+      </div>
+      <div class="card">
+        <h3>Flight Date / Route Changes</h3>
+        <p>Modify dates, times, airports or upgrade seats – lowest change fees possible.</p>
+        <div class="callout">Call 1-833-567-7745 to rebook</div>
+      </div>
+      <div class="card">
+        <h3>Flight Status & Enquiries</h3>
+        <p>Check-in issues, baggage, seat selection, delays, upgrades & more.</p>
+        <div class="callout">Call 1-833-567-7745 for instant help</div>
+      </div>
+      <div class="card">
+        <h3>24/7 Emergency Support</h3>
+        <p>Missed connections, cancellations, travel disruptions – real human help anytime.</p>
+        <div class="callout">Call 1-833-567-7745 – 24×7 support</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="airlines section">
+    <h2>We Help With All Major Airlines</h2>
+    <div class="airlines-grid">
+      <div class="airline-item">American Airlines</div>
+      <div class="airline-item">Delta Air Lines</div>
+      <div class="airline-item">United Airlines</div>
+      <div class="airline-item">Southwest Airlines</div>
+      <div class="airline-item">Alaska Airlines</div>
+      <div class="airline-item">JetBlue Airways</div>
+      <div class="airline-item">Hawaiian Airlines</div>
+      <div class="airline-item">Lufthansa</div>
+      <div class="airline-item">British Airways</div>
+      <div class="airline-item">Air Canada</div>
+      <div class="airline-item">Virgin Atlantic</div>
+      <div class="airline-item">+ Many More</div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <h2>Ready to Resolve Your Flight Issue?</h2>
+    <div class="phone-big">
+      <a href="tel:18335677745" style="color:white; text-decoration:none;">1-833-567-7745</a>
+    </div>
+    <p style="font-size:1.4rem; max-width:700px; margin:0 auto 2.5rem;">
+      Toll-free • 24 hours a day • 7 days a week • Live agents ready to assist you now
+    </p>
+    <a href="tel:18335677745" class="btn-call" style="font-size:1.3rem; padding:1.3rem 3rem;">Call Now – Speak to an Agent</a>
+  </section>
+
+  <footer>
+    <p>© 2026 FlyAssist – Independent Flight Assistance Service<br>
+    Toll-Free Support: <a href="tel:18335677745" style="color:#93c5fd; font-weight:600;">1-833-567-7745</a></p>
+    <p style="margin-top:1.5rem;">
+      <a href="#">Privacy Policy</a> • <a href="#">Terms of Service</a> • <a href="#">Contact</a>
+    </p>
+    <p style="margin-top:2rem; font-size:0.9rem; opacity:0.8;">
+      Not affiliated with any airline. We provide third-party travel assistance services.
+    </p>
+  </footer>
+
+</body>
+</html>
