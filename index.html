@@ -1,188 +1,345 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <base target="_top">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GoAir Flight Services – Your trusted agency for flight bookings, ticket changes, cancellations, modifications, refunds & full support for all major airlines.">
-  <title>GoAir Flight Services – Booking & Support Agency</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="GoAir Flight Services – Professional assistance for flight bookings, changes, cancellations, refunds and full support across major airlines."/>
+  <title>GoAir Flight Services – Professional Flight Support & Booking Assistance</title>
   <style>
-    body { 
-      font-family: Arial, Helvetica, sans-serif; 
-      margin: 0; 
-      padding: 0; 
-      background-color: #f9fbfd; 
-      color: #333; 
-      line-height: 1.6; 
+    :root {
+      --primary: #0a2540;      /* deep navy */
+      --primary-dark: #071b2f;
+      --accent: #28a745;       /* success green */
+      --accent-dark: #218838;
+      --highlight: #ffc107;    /* yellow for offers */
+      --light: #f8f9fa;
+      --gray: #6c757d;
+      --dark: #212529;
+      --border: #dee2e6;
     }
-    header.hero { 
-      background: linear-gradient(to right, #0069d9, #004085); 
-      color: white; 
-      text-align: center; 
-      padding: 80px 20px; 
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .hero h1 { font-size: 3em; margin: 0 0 15px; }
-    .hero p { font-size: 1.4em; max-width: 900px; margin: 0 auto; }
-    section { padding: 60px 20px; max-width: 1100px; margin: 0 auto; }
-    h2 { text-align: center; color: #0069d9; margin-bottom: 40px; font-size: 2.4em; }
-    .services-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-      gap: 35px; 
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
     }
-    .service-card { 
-      background: white; 
-      border: 1px solid #d1e0ff; 
-      border-radius: 12px; 
-      padding: 35px 25px; 
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08); 
-      transition: all 0.3s ease; 
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
-    .service-card:hover { 
-      transform: translateY(-8px); 
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12); 
+
+    header.hero {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      text-align: center;
+      padding: 120px 24px 100px;
     }
-    .service-card h3 { color: #0069d9; margin-top: 0; font-size: 1.6em; }
-    .support-section { 
-      background-color: #e9f3ff; 
-      border-radius: 16px; 
-      padding: 60px 30px; 
-      text-align: center; 
-      margin: 50px auto; 
-      max-width: 1000px; 
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 3.8rem);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
     }
-    .contact-prominent { 
-      font-size: 2.2em; 
-      font-weight: bold; 
-      margin: 35px 0; 
-      color: #0069d9; 
+
+    .hero p {
+      font-size: clamp(1.1rem, 3vw, 1.35rem);
+      max-width: 720px;
+      margin: 0 auto;
+      opacity: 0.95;
     }
-    .alert-box { 
-      background: white; 
-      padding: 30px; 
-      border-radius: 10px; 
-      margin: 40px 0; 
-      border-left: 6px solid #c82333; 
-      text-align: left; 
-      font-size: 1.15em; 
+
+    section {
+      padding: 100px 0;
     }
-    .cta-button { 
-      background: #28a745; 
-      color: white; 
-      border: none; 
-      padding: 18px 50px; 
-      font-size: 1.4em; 
-      border-radius: 8px; 
-      cursor: pointer; 
-      margin: 20px 0; 
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--primary);
     }
-    footer { 
-      background-color: #0c1c38; 
-      color: #a8c0ff; 
-      text-align: center; 
-      padding: 50px 20px; 
-      font-size: 1em; 
-      margin-top: 80px; 
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
     }
-    a { color: #0069d9; text-decoration: none; }
-    a:hover { text-decoration: underline; }
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary);
+    }
+
+    .offer-card {
+      background: linear-gradient(145deg, #fffaf0, #fff8e1);
+      border: 1px solid var(--highlight);
+      border-left: 6px solid var(--highlight);
+      padding: 32px;
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .offer-card h3 {
+      font-size: 2rem;
+      color: #d97706;
+      margin-bottom: 0.8rem;
+    }
+
+    .offer-card .icon {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .offer-card p {
+      font-size: 1.1rem;
+      color: var(--dark);
+    }
+
+    .support-cta {
+      background: var(--light);
+      text-align: center;
+      padding: 100px 24px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .phone-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin: 1.5rem 0;
+      letter-spacing: -0.5px;
+    }
+
+    .phone-link {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .phone-link:hover {
+      color: var(--accent-dark);
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      font-size: 1.15rem;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.25s;
+      box-shadow: 0 4px 12px rgba(40,167,69,0.2);
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(40,167,69,0.3);
+    }
+
+    .warning {
+      background: #fff8e1;
+      border-left: 5px solid #ffc107;
+      padding: 24px;
+      margin: 2rem auto;
+      max-width: 720px;
+      border-radius: 8px;
+      font-size: 1.05rem;
+    }
+
+    footer {
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      padding: 60px 24px 40px;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #a5d8ff;
+    }
+
+    /* Sticky mobile call button */
+    .sticky-call {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      display: none;
+      background: var(--accent);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+      text-decoration: none;
+      font-size: 1.05rem;
+      white-space: nowrap;
+      transition: all 0.3s;
+    }
+
+    .sticky-call:hover {
+      background: var(--accent-dark);
+      transform: translateX(-50%) scale(1.04);
+    }
+
+    @media (max-width: 1023px) {
+      .sticky-call { display: flex; align-items: center; gap: 10px; }
+    }
+
     @media (max-width: 768px) {
-      .hero h1 { font-size: 2.4em; }
-      .contact-prominent { font-size: 1.8em; }
-      .cta-button { width: 100%; padding: 16px; font-size: 1.3em; }
+      header.hero { padding: 80px 20px 60px; }
+      section { padding: 60px 0; }
+      .grid { gap: 24px; }
+      .card, .offer-card { padding: 24px; }
+      .phone-number { font-size: 2.2rem; }
+      .btn { padding: 14px 32px; font-size: 1.05rem; }
+    }
+
+    @media (max-width: 480px) {
+      h2 { font-size: 2rem; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero p { font-size: 1.15rem; }
+      .sticky-call { padding: 12px 24px; font-size: 1rem; bottom: 16px; }
+      .offer-card h3 { font-size: 1.8rem; }
     }
   </style>
 </head>
 <body>
 
   <header class="hero">
-    <h1>GoAir Flight Services</h1>
-    <p>Your reliable agency for flight bookings, ticket corrections, changes, modifications, cancellations, refunds and complete support across all major airlines.</p>
+    <div class="container">
+      <h1>GoAir Flight Services</h1>
+      <p>Professional assistance for flight bookings, modifications, cancellations, refunds and comprehensive support — delivered with care and expertise across major airlines.</p>
+    </div>
   </header>
 
-  <section class="support-section">
-    <h2>24/7 Flight Support – We're Here to Help</h2>
-    <p style="font-size: 1.35em; margin-bottom: 35px; max-width: 850px; margin-left: auto; margin-right: auto;">
-      Whether it's a new booking, fixing a mistake on your ticket, changing dates/routes, canceling your trip, requesting refunds, or handling special needs — our expert team assists you quickly and professionally.
-    </p>
+  <section class="support-cta">
+    <div class="container">
+      <h2>24/7 Dedicated Flight Support</h2>
+      <p style="font-size:1.25rem; max-width:720px; margin:0 auto 2rem; color:var(--gray);">
+        Our experienced team is available around the clock to help with new reservations, ticket corrections, date/route changes, cancellations, refund processing, baggage issues, seat assignments, special assistance requests and more.
+      </p>
 
-    <div class="contact-prominent">
-      📞 Toll-Free Helpline: <a href="tel:+18335677745">1-833-567-7745</a><br>
-      <small>(Available 24 hours – Live Support Agents Available)</small>
-    </div>
+      <div class="phone-number">
+        <a href="tel:18335677745" class="phone-link">1-833-567-7745</a>
+      </div>
 
-    <p style="font-size: 1.3em; margin: 30px 0;">
-      <strong>Email Support:</strong> <a href="tel:+18335677745">help@goairflights.com</a><br>
-      Fast response – usually within hours
-    </p>
+      <p style="margin:1.5rem 0 2.5rem; font-size:1.15rem;">
+        Toll-free • 24 hours a day, 7 days a week
+      </p>
 
-    <div class="alert-box">
-      <strong>⚠️ Travel Scam Warning – Stay Safe</strong><br><br>
-      Fraudsters frequently impersonate flight agencies and airlines.<br>
-      They may contact you unsolicited, ask for gift cards, bank transfers, remote access, or advance payments to "fix" bookings.<br><br>
-      <strong>Important:</strong> We never request payments outside secure channels or ask for sensitive details via phone/email unless you initiated contact through this official page.<br>
-      Always verify support numbers and emails directly here or on airline websites.
-    </div>
+      <a href="tel:18335677745" class="btn">Contact Support Team</a>
 
-    <button class="cta-button" onclick="window.location.href='tel:+18335677745'">
-      Contact Support Now
-    </button>
-  </section>
-
-  <section id="our-services">
-    <h2>Our Full Range of Flight Services</h2>
-    <div class="services-grid">
-      <div class="service-card">
-        <h3>New Flight Bookings</h3>
-        <p>We help you find and book the best available flights for your travel plans — domestic or international — with competitive options and special requests handled.</p>
-      </div>
-      <div class="service-card">
-        <h3>Ticket Corrections & Name Changes</h3>
-        <p>Fix spelling errors, update passenger names (where permitted), or correct minor booking mistakes quickly.</p>
-      </div>
-      <div class="service-card">
-        <h3>Date, Time & Route Changes</h3>
-        <p>Modify your flight schedule — change departure/return dates, times, or even routes — we explain fees and best options.</p>
-      </div>
-      <div class="service-card">
-        <h3>Cancellations & Refunds / Credits</h3>
-        <p>Cancel your ticket and process refunds or travel credits per airline policies — full guidance on rules and timelines.</p>
-      </div>
-      <div class="service-card">
-        <h3>Baggage Services & Issues</h3>
-        <p>Assistance with excess baggage, lost/delayed bags, special items, fee disputes, and claims.</p>
-      </div>
-      <div class="service-card">
-        <h3>Seat Selection & Upgrades</h3>
-        <p>Choose or change seats, request extra legroom, premium options, or cabin upgrades after booking.</p>
-      </div>
-      <div class="service-card">
-        <h3>Special Assistance Requests</h3>
-        <p>Support for passengers needing wheelchair help, unaccompanied minors, medical equipment, service animals, etc.</p>
-      </div>
-      <div class="service-card">
-        <h3>Manage Existing Bookings</h3>
-        <p>Retrieve your trip details, view status, add services, or handle any post-booking needs efficiently.</p>
-      </div>
-      <div class="service-card">
-        <h3>Rebooking After Disruptions</h3>
-        <p>Help with alternate flights in case of delays, cancellations, or missed connections.</p>
+      <div class="warning">
+        <strong>Security Notice:</strong> We will never ask for payment via gift cards, wire transfers, cryptocurrency or remote access. Only use official channels listed on this page. Verify any communication claiming to be from us.
       </div>
     </div>
   </section>
 
-  <section style="text-align:center; padding:60px 20px; background:#f1f8ff;">
-    <h2>Need to Book a New Flight?</h2>
-    <p style="font-size:1.3em; margin-bottom:30px;">Contact us for personalized booking assistance or start your search below.</p>
-    <button class="cta-button" onclick="window.open('tel:+18335677745', '_blank')">
-      Explore Flights →
-    </button>
+  <section style="background: var(--light);">
+    <div class="container">
+      <h2>Current Exclusive Offers</h2>
+      <p style="text-align:center; font-size:1.15rem; color:var(--gray); margin-bottom:3rem; max-width:800px; margin-left:auto; margin-right:auto;">
+        Take advantage of these limited-time promotions when you book or modify through our professional assistance service.
+      </p>
+      <div class="grid">
+        <div class="offer-card">
+          <div class="icon">✈️</div>
+          <h3>Up to 55% Off Service Fees</h3>
+          <p>On all new flight bookings assisted by our team. Save significantly on assistance fees for domestic and international reservations — limited availability.</p>
+        </div>
+        <div class="offer-card">
+          <div class="icon">🔄</div>
+          <h3>Waived Change Fees</h3>
+          <p>On eligible ticket modifications and date/route changes. Enjoy flexible adjustments without standard agency processing charges — for a limited period.</p>
+        </div>
+        <div class="offer-card">
+          <div class="icon">🆓</div>
+          <h3>Complimentary Baggage Upgrade</h3>
+          <p>Receive one additional checked bag allowance on qualifying bookings over a certain value. Perfect for family trips or longer vacations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <h2>Our Professional Services</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>New Flight Reservations</h3>
+          <p>Expert guidance to find and secure the most suitable flights for your itinerary — domestic, international or multi-city travel.</p>
+        </div>
+        <div class="card">
+          <h3>Booking Modifications & Corrections</h3>
+          <p>Name corrections, date/time changes, route adjustments — handled efficiently with clear explanation of airline policies and fees.</p>
+        </div>
+        <div class="card">
+          <h3>Cancellations & Refund Processing</h3>
+          <p>Full support through cancellation requests, refund/credit applications and follow-up according to airline terms and consumer protection rules.</p>
+        </div>
+        <div class="card">
+          <h3>Baggage & Special Services</h3>
+          <p>Assistance with baggage allowances, excess fees, lost/delayed claims, special items and accessibility requirements.</p>
+        </div>
+        <div class="card">
+          <h3>Seat Selection & Upgrades</h3>
+          <p>Preferred seat assignments, extra-legroom options and premium cabin upgrade coordination post-booking.</p>
+        </div>
+        <div class="card">
+          <h3>Travel Disruption Support</h3>
+          <p>Rebooking assistance, alternative arrangements and guidance during delays, cancellations or missed connections.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    <p>© 2026 GoAir Flight Services – Independent flight booking & support agency assisting travelers worldwide.</p>
-    <p>We provide guidance and coordination services for all major airlines. We do not operate flights ourselves.</p>
-    <p>For the most accurate policies, always cross-check directly with the airline. Protect yourself from scams — only use verified contacts.</p>
+    <div class="container">
+      <p>© 2026 GoAir Flight Services. Independent flight support & booking assistance agency.</p>
+      <p>We coordinate with airlines on your behalf. We do not operate aircraft or sell tickets directly.</p>
+      <p style="margin-top:1.5rem; font-size:0.9rem; opacity:0.8;">
+        For official airline policies, please refer to the carrier’s website. Protect yourself — only use verified contact information.
+      </p>
+    </div>
   </footer>
+
+  <!-- Mobile sticky call button -->
+  <a href="tel:18335677745" class="sticky-call">
+    📞 Call 24/7 Support
+  </a>
 
 </body>
 </html>
